@@ -48,11 +48,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# X cursor fix, requires xorg-xsetroot
+# loading cursor fix, requires xorg-xsetroot
 xsetroot -cursor_name left_ptr &
 
-# Wallpaper
+# wallpaper
 nitrogen --restore &
 
+# hide cursor
+unclutter &
+
+# needed by bspwm
 sxhkd &
 exec bspwm
